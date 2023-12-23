@@ -1,2 +1,0 @@
-Name: a, Start: 10, Duration: 15, Rest of tickets: 22
-Name: b, Start: 12, Duration: 13, Rest of tickets: 22

@@ -1,0 +1,4 @@
+Name: a, Start: 810, Duration: 10, Rest of tickets: 25
+Name: b, Start: 0, Duration: 153, Rest of tickets: 25
+Name: 8 mile, Start: 795, Duration: 155, Rest of tickets: 23
+Name: Granny, Start: 1380, Duration: 133, Rest of tickets: 24

@@ -2,7 +2,6 @@ package hse.kpo.restaurant.app.controller
 
 import hse.kpo.restaurant.api.RestaurantApi
 import org.springframework.web.bind.annotation.*
-import hse.kpo.restaurant.api.dto.Order
 import hse.kpo.restaurant.app.service.RestaurantService
 
 

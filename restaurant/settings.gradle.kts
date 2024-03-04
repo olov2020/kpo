@@ -4,3 +4,5 @@ plugins {
 rootProject.name = "restaurant"
 include("restaurant-api")
 include("restaurant-app")
+include("restaurant-client")
+include("restaurant-client-starter")

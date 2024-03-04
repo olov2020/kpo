@@ -1,4 +1,4 @@
-package hse.kpo.restaurant
+package hse.kpo.restaurant.client.config
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

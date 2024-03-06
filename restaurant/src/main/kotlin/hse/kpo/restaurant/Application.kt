@@ -1,11 +1,11 @@
-package hse.kpo.restaurant.client.config
+package hse.kpo.restaurant
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class RestaurantApplication
+class Application
 
 fun main(args: Array<String>) {
-	runApplication<RestaurantApplication>(*args)
+    runApplication<Application>(*args)
 }

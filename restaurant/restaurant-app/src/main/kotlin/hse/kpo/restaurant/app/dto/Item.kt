@@ -1,4 +1,4 @@
-package hse.kpo.restaurant.api.dto
+package hse.kpo.restaurant.app.dto
 
 class Item {
     private val id: Long? = null

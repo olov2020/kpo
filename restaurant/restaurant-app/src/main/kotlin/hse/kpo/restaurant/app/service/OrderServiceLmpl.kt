@@ -1,6 +1,6 @@
 package hse.kpo.restaurant.app.service
 
-abstract class RestaurantServiceLmpl : RestaurantService {
+abstract class OrderServiceLmpl : OrderService {
     private val restaurantRepository: RestaurantRepository? = null
 
     private val restaurantMapper: RestaurantMapper? = null

@@ -3,7 +3,7 @@ import hse.kpo.restaurant.api.dto.Order
 import hse.kpo.restaurant.api.dto.OrderList
 import org.springframework.web.bind.annotation.*
 
-interface RestaurantClient : RestaurantApi {
+interface OrderClient : RestaurantApi {
     @GetMapping("/api/v1/product")
     override fun findOrders(
         @RequestParam(required = false, name = "name", defaultValue = "") name: String?,

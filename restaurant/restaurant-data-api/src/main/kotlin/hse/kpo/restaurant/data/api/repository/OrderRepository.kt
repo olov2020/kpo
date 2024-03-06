@@ -1,5 +1,6 @@
 package hse.kpo.restaurant.data.api.repository
 
+import hse.kpo.restaurant.data.api.model.Item
 import hse.kpo.restaurant.data.api.model.Order
 
 interface OrderRepository {
@@ -14,6 +15,8 @@ interface OrderRepository {
     fun save(order: Order?): Order?
 
     fun deleteById(id: Long?)
+
+    fun deleteItemById(item: Item?)
 
     fun updateById(order: Order?)
 }

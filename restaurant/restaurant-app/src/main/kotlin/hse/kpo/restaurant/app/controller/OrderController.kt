@@ -20,19 +20,6 @@ abstract class OrderController : OrderApi {
 
     private val orderMapper: OrderMapper? = null
 
-    @GetMapping
-    override fun findOrders(
-        @RequestParam(required = false, defaultValue = "") name: String?,
-        @RequestParam(required = false, name = "id") ids: List<Long?>?
-    ): OrderList? {
-        return orderMapper!!::appDto2ApiDto.let { orderService?.findOrders(name, ids)?.stream()?.map(it)?.toList() }
-            ?.let {
-                OrderList(
-                    it
-                )
-            }
-    }
-
     @GetMapping("/{id}")
     override fun getOrderById(@PathVariable id: Long?): Order? {
         return orderMapper?.appDto2ApiDto(orderService?.getOrderById(id))
@@ -57,9 +44,9 @@ abstract class OrderController : OrderApi {
         orderService?.deleteOrder(id)
     }
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     @ResponseStatus(org.springframework.http.HttpStatus.NO_CONTENT)
     override fun deleteItem(@PathVariable id: Long?, item: Item?) {
         orderService?.deleteItem(id, item)
-    }
+    }*/
 }

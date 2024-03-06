@@ -1,24 +1,23 @@
-import hse.kpo.restaurant.api.RestaurantApi
+import hse.kpo.restaurant.api.OrderApi
+import hse.kpo.restaurant.api.dto.Item
 import hse.kpo.restaurant.api.dto.Order
 import hse.kpo.restaurant.api.dto.OrderList
 import org.springframework.web.bind.annotation.*
 
-interface OrderClient : RestaurantApi {
-    @GetMapping("/api/v1/product")
-    override fun findOrders(
-        @RequestParam(required = false, name = "name", defaultValue = "") name: String?,
-        @RequestParam(required = false, name = "id") ids: List<Long?>?
-    ): OrderList?
+interface OrderClient : OrderApi {
 
-    @GetMapping("/api/v1/product/{id}")
+    @GetMapping("/api/v1/order/{id}")
     override fun getOrderById(@PathVariable(name = "id") id: Long?): Order?
 
-    @PostMapping("/api/v1/product")
-    override fun createOrder(@RequestBody order: Order?): Order?
+    @PostMapping("/api/v1/order")
+    override fun createOrder(item: Item?): Order?
 
-    @PutMapping("/api/v1/product/{id}")
-    override fun editOrder(@PathVariable(name = "id") id: Long?, @RequestBody order: Order?)
+    @PutMapping("/api/v1/order/{id}")
+    override fun editOrder(id: Long?, item: Item?)
 
-    @DeleteMapping("/api/v1/product/{id}")
+    @DeleteMapping("/api/v1/order/{id}")
     override fun deleteOrder(@PathVariable(name = "id") id: Long?)
+
+    @DeleteMapping("/api/v1/order/{id}")
+    override fun deleteItem(@PathVariable(name = "id") id: Long?, item: Item?)
 }

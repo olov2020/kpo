@@ -1,49 +1,54 @@
 package hse.kpo.restaurant.app.service
 
+import hse.kpo.restaurant.app.dto.Item
+import hse.kpo.restaurant.app.dto.Order
+import hse.kpo.restaurant.app.exception.OrderNotFoundById
+import hse.kpo.restaurant.app.mapper.ItemMapper
+import hse.kpo.restaurant.app.mapper.OrderMapper
+import hse.kpo.restaurant.data.api.repository.OrderRepository
+
 abstract class OrderServiceLmpl : OrderService {
-    private val restaurantRepository: RestaurantRepository? = null
+    private val orderRepository: OrderRepository? = null
 
-    private val restaurantMapper: RestaurantMapper? = null
+    private val orderMapper: OrderMapper? = null
 
-    private val detailedProductMapper: DetailedProductMapper? = null
+    private val itemMapper: ItemMapper? = null
 
-    fun findProducts(name: String?, ids: List<UUID?>?): List<Product> {
-        val list: Unit = if (org.springframework.util.CollectionUtils.isEmpty(ids)
-        ) productRepository.findByName(name)
-        else productRepository.findByNameAndIdIn(name, ids)
-
-        return list.stream()
-            .map(productMapper::dataModel2AppDto)
-            .toList()
-    }
-
-    fun getProductById(id: UUID?): DetailedProduct {
-        if (!productRepository.existsById(id)) {
-            throw ProductNotFoundById(id)
+    override fun getOrderById(id: Long?): Order? {
+        if (!orderRepository?.existsById(id)!!) {
+            throw OrderNotFoundById(id)
         }
 
-        return detailedProductMapper.dataModel2AppDto(productRepository.findById(id))
+        return orderMapper?.dataModel2AppDto(orderRepository.findById(id))
     }
 
-    fun createProduct(detailedProduct: DetailedProduct?): Product {
-        return productMapper.dataModel2AppDto(
-            productRepository.save(detailedProductMapper.appDto2DataModel(null, detailedProduct))
+    override fun createOrder(item: Item?): Order? {
+        return orderMapper?.dataModel2AppDto(
+            orderRepository?.save(itemMapper?.appDto2DataModel(null, item))
         )
     }
 
-    fun editProduct(id: UUID?, detailedProduct: DetailedProduct?) {
-        if (!productRepository.existsById(id)) {
-            throw ProductNotFoundById(id)
+    override fun editOrder(id: Long?, item: Item?) {
+        if (!orderRepository?.existsById(id)!!) {
+            throw OrderNotFoundById(id)
         }
 
-        productRepository.updateById(detailedProductMapper.appDto2DataModel(id, detailedProduct))
+        orderRepository.updateById(itemMapper?.appDto2DataModel(id, item))
     }
 
-    fun deleteProduct(id: UUID?) {
-        if (!productRepository.existsById(id)) {
-            throw ProductNotFoundById(id)
+    override fun deleteOrder(id: Long?) {
+        if (!orderRepository?.existsById(id)!!) {
+            throw OrderNotFoundById(id)
         }
 
-        productRepository.deleteById(id)
+        orderRepository.deleteById(id)
     }
+
+    /*override fun deleteItem(id: Long?, item: Item?) {
+        if (!orderRepository?.existsById(id)!!) {
+            throw OrderNotFoundById(id)
+        }
+
+        orderRepository.deleteItemById(itemMapper?.apiDto2AppDto(id, item))
+    }*/
 }

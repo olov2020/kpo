@@ -2,8 +2,11 @@ package hse.kpo.restaurant.data.repository
 
 import hse.kpo.restaurant.data.api.model.Order
 import hse.kpo.restaurant.data.api.repository.OrderRepository
+import org.springframework.stereotype.Repository
 
-class OrderRepositoryImpl : OrderRepository {
+
+@Repository
+abstract class OrderRepositoryImpl : OrderRepository {
     override fun findByName(name: String?): List<Order?>? {
         TODO("Not yet implemented")
     }

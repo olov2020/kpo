@@ -6,8 +6,8 @@ interface ItemMapper {
     ): hse.kpo.restaurant.app.dto.Item?
 
     fun appDto2DataModel(
-        id: Long?, item: hse.kpo.restaurant.app.dto.Item?
-    ): hse.kpo.restaurant.api.dto.Item
+        id: Long?, detailedProduct: hse.kpo.restaurant.app.dto.Item?
+    ): hse.kpo.restaurant.data.api.model.Order?
 
     fun appDto2ApiDto(
         item: hse.kpo.restaurant.app.dto.Item?

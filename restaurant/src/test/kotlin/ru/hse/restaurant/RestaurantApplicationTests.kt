@@ -1,4 +1,4 @@
-package hse.kpo.restaurant
+package ru.hse.restaurant
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

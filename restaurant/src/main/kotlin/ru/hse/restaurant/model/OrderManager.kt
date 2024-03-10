@@ -7,14 +7,14 @@ import java.util.concurrent.LinkedBlockingQueue
 
 class OrderManager(
     private val executor: ExecutorService = Executors.newFixedThreadPool(3),
-    private val chefs: MutableList<Cooking> = mutableListOf(),
+    private val cookingItems: MutableList<Cooking> = mutableListOf(),
     private val orderQueue: BlockingQueue<Order> = LinkedBlockingQueue(),
 ) {
     init {
         repeat(3) {
-            val chef = Cooking(orderQueue)
-            chefs.add(chef)
-            executor.submit(chef)
+            val cooking = Cooking(orderQueue)
+            cookingItems.add(cooking)
+            executor.submit(cooking)
         }
     }
 
@@ -23,8 +23,8 @@ class OrderManager(
     }
 
     fun stopAllChefs() {
-        for (chef in chefs) {
-            chef.stop()
+        for (cooking in cookingItems) {
+            cooking.stop()
         }
         executor.shutdown()
     }

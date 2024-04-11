@@ -1,15 +1,1 @@
-{
-  "admins": [
-    {
-      "login": "admin0",
-      "hashedPassword": "$2a$10$vkni0liohKhfJg9hlirBmOCyLVjHIfj787B3Xjx8jkAA/14YrAMda"
-    }
-  ],
-  "customers": [
-    {
-      "login": "vova",
-      "hashedPassword": "$2a$10$hpWil7aBV3FOLrKnW1XsEeLDXBF8kMhOAPcTMMqmqlR811lbe13hW",
-      "balance": 110
-    }
-  ]
-}
+{"admins":[{"login":"admin0","hashedPassword":"$2a$10$vkni0liohKhfJg9hlirBmOCyLVjHIfj787B3Xjx8jkAA/14YrAMda"}],"customers":[{"login":"vova","hashedPassword":"$2a$10$hpWil7aBV3FOLrKnW1XsEeLDXBF8kMhOAPcTMMqmqlR811lbe13hW","balance":110}]}
